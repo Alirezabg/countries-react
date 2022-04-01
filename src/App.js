@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import React from "react";
+import countriesAll from "./countriesAll.json";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {countriesAll.map((country) => (
+        <>
+          <div className="">
+            <img src={country.flags.png} alt="countries flag" />
+            <p>{country.name.common}</p>
+            <p>Population : {country.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} </p>
+            <p>region : {country.region} </p>
+            <p>Capital : {country.capital} </p>
+          </div>
+        </>
+      ))}
     </div>
   );
 }
